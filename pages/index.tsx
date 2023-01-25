@@ -1,4 +1,5 @@
 import Head from "next/head"
+import Link from "next/link"
 
 import { Icons } from "@/components/icons"
 import { Layout } from "@/components/layout"
@@ -33,6 +34,27 @@ export default function IndexPage() {
             Continue with Twitter
           </Button>
         </div>
+        <p className="text-slate-700 dark:text-slate-400">
+          Thanks to{" "}
+          <Link
+            href="https://twitter.com/shadcn"
+            className="text-black underline dark:text-white"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            shadcn
+          </Link>{" "}
+          for the beautifully designed{" "}
+          <Link
+            href="https://github.com/shadcn/ui"
+            className="text-black underline dark:text-white"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            components
+          </Link>
+          .
+        </p>
       </section>
     </Layout>
   )
