@@ -1,5 +1,6 @@
 import Head from "next/head"
 import Link from "next/link"
+import { signIn } from "next-auth/react"
 
 import { Icons } from "@/components/icons"
 import { Layout } from "@/components/layout"
@@ -24,18 +25,19 @@ export default function IndexPage() {
             based on your search criteria.
           </h1>
           <p className="max-w-[700px] text-lg text-slate-700 dark:text-slate-400 sm:text-xl">
-            Painlessly find the best profiles to follow within any niche. Search
-            for users by keywords, follower count, engagement rate, and more.
+            Painlessly find the best people to follow within any niche. Search
+            for profiles based on keywords, follower count, engagement rate, and
+            more.
           </p>
         </div>
         <div className="flex gap-4">
-          <Button>
+          <Button onClick={() => signIn("twitter")}>
             <Icons.twitter className="mr-3 fill-current" />
             Continue with Twitter
           </Button>
         </div>
         <p className="text-slate-700 dark:text-slate-400">
-          Thanks to{" "}
+          Props to{" "}
           <Link
             href="https://twitter.com/shadcn"
             className="text-black underline dark:text-white"
@@ -44,7 +46,7 @@ export default function IndexPage() {
           >
             shadcn
           </Link>{" "}
-          for the beautifully designed{" "}
+          for the beautifully crafted{" "}
           <Link
             href="https://github.com/shadcn/ui"
             className="text-black underline dark:text-white"

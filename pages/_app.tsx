@@ -1,5 +1,6 @@
 import type { AppProps } from "next/app"
 import { Inter as FontSans } from "@next/font/google"
+import { SessionProvider } from "next-auth/react"
 import { ThemeProvider } from "next-themes"
 
 import "@/styles/globals.css"
@@ -9,9 +10,12 @@ const fontSans = FontSans({
   variable: "--font-sans",
 })
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({
+  Component,
+  pageProps: { session, ...pageProps },
+}: AppProps) {
   return (
-    <>
+    <SessionProvider session={session}>
       <style jsx global>{`
 				:root {
 					--font-sans: ${fontSans.style.fontFamily};
@@ -20,6 +24,6 @@ export default function App({ Component, pageProps }: AppProps) {
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
         <Component {...pageProps} />
       </ThemeProvider>
-    </>
+    </SessionProvider>
   )
 }
