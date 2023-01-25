@@ -1,18 +1,17 @@
 import Head from "next/head"
-import Link from "next/link"
 
-import { siteConfig } from "@/config/site"
+import { Icons } from "@/components/icons"
 import { Layout } from "@/components/layout"
-import { buttonVariants } from "@/components/ui/button"
+import { Button } from "@/components/ui/button"
 
 export default function IndexPage() {
   return (
     <Layout>
       <Head>
-        <title>Next.js</title>
+        <title>FlockForge</title>
         <meta
           name="description"
-          content="Next.js template for building apps with Radix UI and Tailwind CSS"
+          content="Perfectly curated Twitter Lists based on your search criteria."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
@@ -20,31 +19,19 @@ export default function IndexPage() {
       <section className="container grid items-center gap-6 pt-6 pb-8 md:py-10">
         <div className="flex max-w-[980px] flex-col items-start gap-2">
           <h1 className="text-3xl font-extrabold leading-tight tracking-tighter sm:text-3xl md:text-5xl lg:text-6xl">
-            Beautifully designed components <br className="hidden sm:inline" />
-            built with Radix UI and Tailwind CSS.
+            Perfectly curated Twitter Lists <br className="hidden sm:inline" />
+            based on your search criteria.
           </h1>
           <p className="max-w-[700px] text-lg text-slate-700 dark:text-slate-400 sm:text-xl">
-            Accessible and customizable components that you can copy and paste
-            into your apps. Free. Open Source. And Next.js 13 Ready.
+            Painlessly find the best profiles to follow within any niche. Search
+            for users by keywords, follower count, engagement rate, and more.
           </p>
         </div>
         <div className="flex gap-4">
-          <Link
-            href={siteConfig.links.docs}
-            target="_blank"
-            rel="noreferrer"
-            className={buttonVariants({ size: "lg" })}
-          >
-            Documentation
-          </Link>
-          <Link
-            target="_blank"
-            rel="noreferrer"
-            href={siteConfig.links.github}
-            className={buttonVariants({ variant: "outline", size: "lg" })}
-          >
-            GitHub
-          </Link>
+          <Button>
+            <Icons.twitter className="mr-3 fill-current" />
+            Continue with Twitter
+          </Button>
         </div>
       </section>
     </Layout>
