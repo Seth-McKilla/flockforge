@@ -11,7 +11,7 @@ interface SiteConfig {
 }
 
 export const siteConfig: SiteConfig = {
-  name: "FlockForge",
+  name: "flockforge",
   description: "Perfectly curated Twitter Lists based on your search criteria.",
   mainNav: [],
   links: {

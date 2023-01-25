@@ -10,7 +10,7 @@ export default function IndexPage() {
   return (
     <Layout>
       <Head>
-        <title>FlockForge</title>
+        <title>flockforge</title>
         <meta
           name="description"
           content="Perfectly curated Twitter Lists based on your search criteria."
@@ -26,12 +26,18 @@ export default function IndexPage() {
           </h1>
           <p className="max-w-[700px] text-lg text-slate-700 dark:text-slate-400 sm:text-xl">
             Painlessly find the best people to follow within any niche. Search
-            for profiles based on keywords, follower count, engagement rate, and
-            more.
+            for profiles based on keywords, follower count, engagement rates,
+            and more.
           </p>
         </div>
         <div className="flex gap-4">
-          <Button onClick={() => signIn("twitter")}>
+          <Button
+            onClick={() =>
+              signIn("twitter", {
+                callbackUrl: "/dashboard",
+              })
+            }
+          >
             <Icons.twitter className="mr-3 fill-current" />
             Continue with Twitter
           </Button>
