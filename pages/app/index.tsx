@@ -21,15 +21,7 @@ export default function DashboardPage() {
       </Head>
       <section className="container grid items-center gap-6 pt-6 pb-8 md:py-10">
         <div>
-          <Button
-            onClick={() =>
-              signOut({
-                callbackUrl: "/",
-              })
-            }
-          >
-            Sign Out
-          </Button>
+          <Button onClick={() => signOut()}>Sign Out</Button>
         </div>
       </section>
     </Layout>

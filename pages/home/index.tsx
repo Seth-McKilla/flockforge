@@ -1,12 +1,15 @@
 import Head from "next/head"
 import Link from "next/link"
-import { signIn } from "next-auth/react"
+import { signIn, useSession } from "next-auth/react"
 
 import { Icons } from "@/components/icons"
 import { Layout } from "@/components/layout"
 import { Button } from "@/components/ui/button"
 
 export default function IndexPage() {
+  const { data: session } = useSession()
+  console.log(session)
+
   return (
     <Layout>
       <Head>
@@ -31,13 +34,7 @@ export default function IndexPage() {
           </p>
         </div>
         <div className="flex gap-4">
-          <Button
-            onClick={() =>
-              signIn("twitter", {
-                callbackUrl: "/dashboard",
-              })
-            }
-          >
+          <Button onClick={() => signIn("twitter")}>
             <Icons.twitter className="mr-3 fill-current" />
             Continue with Twitter
           </Button>
