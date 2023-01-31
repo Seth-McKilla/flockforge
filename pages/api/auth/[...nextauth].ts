@@ -1,12 +1,15 @@
+import { MongoDBAdapter } from "@next-auth/mongodb-adapter"
 import NextAuth from "next-auth"
 import TwitterProvider from "next-auth/providers/twitter"
 
+import clientPromise from "@/lib/mongodb"
+
 export default NextAuth({
+  adapter: MongoDBAdapter(clientPromise),
   providers: [
     TwitterProvider({
       clientId: process.env.TWITTER_CLIENT_ID,
       clientSecret: process.env.TWITTER_CLIENT_SECRET,
-      version: "2.0",
     }),
   ],
   secret: process.env.NEXTAUTH_SECRET,

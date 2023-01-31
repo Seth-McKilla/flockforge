@@ -1,10 +1,13 @@
 import Head from "next/head"
-import { signOut } from "next-auth/react"
+import { signOut, useSession } from "next-auth/react"
 
 import { Layout } from "@/components/layout"
 import { Button } from "@/components/ui/button"
 
 export default function DashboardPage() {
+  const { data: session } = useSession()
+  console.log(session)
+
   return (
     <Layout>
       <Head>
