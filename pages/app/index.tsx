@@ -1,12 +1,13 @@
 import Head from "next/head"
 import { signOut, useSession } from "next-auth/react"
+import useSWR from "swr"
 
+import { fetcher } from "@/lib/utils"
 import { Layout } from "@/components/layout"
 import { Button } from "@/components/ui/button"
 
 export default function DashboardPage() {
-  const { data: session } = useSession()
-  console.log(session)
+  const { data } = useSWR("/api/twitter/users", fetcher)
 
   return (
     <Layout>

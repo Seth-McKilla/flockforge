@@ -1,4 +1,5 @@
 import { MongoDBAdapter } from "@next-auth/mongodb-adapter"
+import { ObjectId } from "mongodb"
 import NextAuth from "next-auth"
 import TwitterProvider from "next-auth/providers/twitter"
 
@@ -20,5 +21,19 @@ export default NextAuth({
   },
   session: {
     strategy: "jwt",
+  },
+  callbacks: {
+    async session({ session, token }) {
+      const client = await clientPromise
+      const db = client.db(process.env.MONGODB_AUTH_DB_NAME)
+      const account = await db.collection("accounts").findOne({
+        userId: new ObjectId(token.sub),
+      })
+
+      session.user.id = account?._id
+      session.user.token = account?.oauth_token
+
+      return session
+    },
   },
 })

@@ -8,7 +8,6 @@ import { Button } from "@/components/ui/button"
 
 export default function IndexPage() {
   const { data: session } = useSession()
-  console.log(session)
 
   return (
     <Layout>
